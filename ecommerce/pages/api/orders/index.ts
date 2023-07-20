@@ -13,6 +13,7 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       const { user, products, address, amount: _amount } = req.body;
+      console.log({ user, products, address, amount: _amount });
 
       const amount = parseFloat(_amount);
       const { accountNo } = user;
@@ -36,6 +37,8 @@ export default async function handler(
           balance: amount,
         }
       );
+      console.log({ user_ecommerce });
+
       const userTransactionId = user_ecommerce.transactionId;
       const supplierAmount = amount - amount * ECOMMERCE_RATE;
       const { data: ecommerce_supplier } = await axios.post(
@@ -47,6 +50,7 @@ export default async function handler(
         }
       );
       const supplierTransactionId = ecommerce_supplier.transactionId;
+      console.log({ ecommerce_supplier });
 
       const { data: order_data } = await axios.post(
         `${SUPPLIER_API_ROUTE}/createOrder`,
@@ -60,6 +64,7 @@ export default async function handler(
 
       res.status(200).json({ status: "Ok", transactionId: userTransactionId });
     } catch (err) {
+      console.log(err);
       res.status(200).json({ error: "Error occurred!" });
     }
   }

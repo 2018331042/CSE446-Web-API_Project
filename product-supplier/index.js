@@ -13,6 +13,7 @@ const port = 4000;
 // for parsing application/json
 app.use(bodyParser.json());
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
+// app.use(cors());
 app.use(upload.array());
 
 app.get("", (req, res) => {
@@ -24,6 +25,7 @@ app.get(`${apiUrl}`, (req, res) => {
 });
 
 app.get(`${apiUrl}/products`, (req, res) => {
+  console.log({para: req});
   Product.find({}, (err, products) => {
     if (err) {
       return res.json({ error: "Error occurred during fetching products" });
@@ -51,6 +53,21 @@ app.get(`${apiUrl}/product/:id`, (req, res) => {
   });
 });
 
+app.get(`${apiUrl}/getProducts`, urlencodedParser, (req, res) => {
+  console.log({ids: req.body});
+  Product.find({_id: req.params.ids}, (err, products) => {
+    if (err) {
+      return res.json({ error: "Error occurred during fetching products" });
+    }
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    return res.json({ products });
+  });
+})
+
 app.post(`${apiUrl}/addProduct`, urlencodedParser, (req, res) => {
   const { name, category, description, price } = req.body;
 
@@ -60,8 +77,10 @@ app.post(`${apiUrl}/addProduct`, urlencodedParser, (req, res) => {
     price,
     description,
   });
+  console.log({ product });
   product.save(function (err) {
     if (err) {
+      console.log({err});
       return res.send("Error occurred, product saved failed. try again!");
     }
     res.send("Product saved successfully!");

@@ -112,7 +112,7 @@ app.post(
   async (req, res) => {
     try {
       const { senderAccountNo, receiverAccountNo, balance } = req.body;
-
+      console.log({senderAccountNo, receiverAccountNo, balance});
       const transactionId = await makeTransaction(
         senderAccountNo,
         receiverAccountNo,
@@ -129,6 +129,7 @@ app.post(
           receiverAccountNo,
       });
     } catch (err) {
+      console.log({err});
       res.send("Error occurred! " + err.message);
     }
   }
