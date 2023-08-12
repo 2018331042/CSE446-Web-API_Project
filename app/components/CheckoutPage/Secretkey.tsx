@@ -45,15 +45,15 @@ const SecretKey: React.FC<SecretKeyProps> = ({
             Please choose a password.
           </p>
         </div>
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <a
             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
             href="#"
           >
             Forgot secret?
           </a>
-        </div>
-        <div className="pt-4  w-full">
+        </div> */}
+        <div className="w-full">
           <button
             onClick={back}
             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"

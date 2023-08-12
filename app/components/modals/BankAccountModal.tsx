@@ -52,8 +52,8 @@ const BankAccountModal: React.FC<BankAccoutModalProps> = ({}) => {
   const bodyContent = (
     <div>
       <Heading
-        title="make it strong!!"
-        subtitle="you have to memorise the bank sectet"
+        title="Give your preferred secret code"
+        subtitle="Please remember it or save it somewhere else."
         center={false}
       />
       <Input
@@ -72,9 +72,9 @@ const BankAccountModal: React.FC<BankAccoutModalProps> = ({}) => {
       isOpen={bankModal.isOpen}
       onClose={bankModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      title="bank account"
+      title="Bank account information"
       body={bodyContent}
-      actionLebel="create bank secret"
+      actionLebel="create Account"
       disabled={isLoading}
       secondaryActionLabel=""
     />

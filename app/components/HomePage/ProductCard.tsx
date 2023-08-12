@@ -98,7 +98,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </div>
                 <div className="flex-auto justify-evenly">
                   <div className="flex flex-wrap ">
-                    <div className="w-full flex-none text-sm flex items-center text-gray-600">
+                    {/* <div className="w-full flex-none text-sm flex items-center text-gray-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 text-red-500 mr-1"
@@ -111,20 +111,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         4.60
                       </span>
                       <span className="mr-2 text-gray-400">Bangladesh</span>
-                    </div>
+                    </div> */}
                     <div className="flex items-center w-full justify-between min-w-0 ">
                       <h2 className="text-lg mr-auto cursor-pointer text-gray-200 hover:text-purple-500  ">
                         {product.title}
                       </h2>
-                      <div className="flex items-center bg-green-700 text-white text-xs px-2 py-1 ml-3 rounded-lg">
-                        INSTOCK {stock}
+                      <div className="text-xl text-white font-semibold mt-1">
+                        {product.price} TK
                       </div>
                     </div>
                   </div>
-                  <div className="text-xl text-white font-semibold mt-1">
-                    ${product.price}
-                  </div>
-                  <div className="lg:flex  py-4  text-sm text-gray-600">
+
+                  {/* <div className="lg:flex  py-4  text-sm text-gray-600">
                     <div className="flex-1 inline-flex items-center  mb-3">
                       <div className="w-full flex-none text-sm flex items-center text-gray-600">
                         <ul className="flex flex-row justify-center items-center space-x-2">
@@ -164,15 +162,24 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex space-x-2 text-sm font-medium justify-start items-center">
                     <button
                       onClick={addProductFromCart}
                       className="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-indigo-700 px-4 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-indigo-900 "
                     >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                      </svg>
+
                       <span>Add Cart</span>
                     </button>
-                    <button className="transition ease-in duration-300 bg-gray-700 hover:bg-gray-800 border hover:border-gray-500 border-gray-900 hover:text-white  hover:shadow-lg text-gray-400 rounded-full w-9 h-9 text-center p-2">
+                    {/* <button className="transition ease-in duration-300 bg-gray-700 hover:bg-gray-800 border hover:border-gray-500 border-gray-900 hover:text-white  hover:shadow-lg text-gray-400 rounded-full w-9 h-9 text-center p-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className=""
@@ -193,7 +200,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                    </button>
+                    </button> */}
                     <AiOutlineMinus
                       onClick={handleRemoveProduct}
                       className="text-white cursor-pointer text-sm font-bold "

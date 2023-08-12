@@ -49,10 +49,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <div>
             {bankInformation?.createStatus ? (
               <div className="text-xl font-bold">
-                ${bankInformation?.currentMoney}
+                {bankInformation?.currentMoney} TK
               </div>
             ) : (
-              <div>$ 0</div>
+              <div>0 TK</div>
             )}
           </div>
         )}
@@ -66,12 +66,12 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {cartProducts.length}
           </div>
         </div>
-        <div
+        {/* <div
           onClick={() => {}}
           className="hidden font-bold text-xl md:block  py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer "
         >
           {currentUser?.name}
-        </div>
+        </div> */}
         <div
           onClick={toggleOpen}
           className="p-4  md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
@@ -88,7 +88,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
               <>
                 <MenuItem onClick={handleCartButton} label="My Cart" />
-                <MenuItem onClick={() => {}} label="My fevourits" />
                 {bankInformation === null && (
                   <MenuItem
                     onClick={bankModal.onOpen}

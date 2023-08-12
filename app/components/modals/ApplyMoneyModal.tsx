@@ -126,9 +126,9 @@ const ApplyMoneyModal: React.FC<ApplyMoneyModalProps> = ({
     <Modal
       isOpen={applyMoneyModal.isOpen}
       onClose={applyMoneyModal.onClose}
-      title="Request for withdow money"
+      title="Request for add balance in shop"
       body={bodyContent}
-      actionLebel="apply for money"
+      actionLebel="apply for withdraw"
       disabled={isLoading}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel=""

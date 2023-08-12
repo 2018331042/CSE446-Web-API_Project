@@ -45,10 +45,10 @@ const CartDetails: React.FC<CartDetailsProps> = ({
                 Quantity
               </h3>
               <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">
-                Price
+                Unit price
               </h3>
               <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center">
-                Total
+                Total Price
               </h3>
             </div>
             {cartProducts.map((cartProduct) => {
@@ -142,7 +142,7 @@ const CartDetails: React.FC<CartDetailsProps> = ({
                 Shipping
               </label>
               <select className="block p-2 text-gray-600 w-full text-sm">
-                <option>Standard shipping - $10.00</option>
+                <option>Standard shipping - 50.00 TK</option>
               </select>
             </div>
             <div className="py-10">
@@ -169,7 +169,7 @@ const CartDetails: React.FC<CartDetailsProps> = ({
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
 
-                <span>${totalPrice}</span>
+                <span>{totalPrice + 50} TK</span>
               </div>
               <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                 Checkout
