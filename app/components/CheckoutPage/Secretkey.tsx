@@ -59,7 +59,7 @@ const SecretKey: React.FC<SecretKeyProps> = ({
             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
           >
             back
-          </button>
+          </button>{" "}
           <button
             disabled={isLoading}
             className="bg-green-500 w-full p-1 text-lg font-semibold"
