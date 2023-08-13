@@ -161,12 +161,12 @@ const ParentForm: React.FC<ParentFormProps> = ({ userId, bankInformation }) => {
         <EmptyState title="sorry" subtitle="Added product to your cart" />
       ) : (
         <form onSubmit={onSubmit}>
-          <div>
+          {/* <div>
             <Steps
               currentStep={currentStepIndex + 1}
               stepLength={steps.length}
             />
-          </div>
+          </div> */}
           <div>{step}</div>
         </form>
       )}
