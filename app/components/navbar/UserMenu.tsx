@@ -118,6 +118,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     />
                   </div>
                 )}
+                {currentUser.role === "ADMIN" && (
+                  <div>
+                    <hr />
+                    <MenuItem
+                      onClick={() => router.push("/order-request")}
+                      label="Order Request"
+                    />
+                  </div>
+                )}
                 {currentUser.role === "BANK" && (
                   <div>
                     <hr />

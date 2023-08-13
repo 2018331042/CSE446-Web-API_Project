@@ -60,7 +60,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
   }, [product.id, router]);
 
   return (
-    <div className="transition ease-in-out duration-300    hover:scale-110 ">
+    <div
+    //   className="
+    //  transition ease-in-out duration-300    hover:scale-110 h-24
+    // "
+    >
       <div className="relative  flex flex-col items-center justify-center ">
         <div className="container">
           <div className="max-w-md w-full bg-gray-900 shadow-lg rounded-md p-6">
@@ -92,7 +96,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <img
                       src={product.imageSrc}
                       alt="Just a flower"
-                      className=" w-full max-h-[120px]  object-cover  rounded  hover:scale-125 transition duration-500 cursor-pointer "
+                      className=" w-full h-[110px]  object-cover  rounded  hover:scale-125 transition duration-500 cursor-pointer "
                     />
                   </div>
                 </div>
@@ -163,7 +167,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                       </div> */}
                 </div>
               </div>
-              <div className="flex space-x-2 text-sm font-medium justify-start items-center">
+              <div className="flex space-x-2 text-sm font-medium justify-between items-center">
                 <button
                   onClick={addProductFromCart}
                   className="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-700 px-4 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-800 "
@@ -201,21 +205,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         />
                       </svg>
                     </button> */}
-                <AiOutlineMinus
-                  onClick={handleRemoveProduct}
-                  className="text-white cursor-pointer text-sm font-bold "
-                />
-                <div className="text-white text-xl p-1 ">
-                  {cartProducts.find(
-                    (currentProduct) => currentProduct.id === product.id
-                  )?.stock || 0}
+                <div className="flex items-center">
+                  <AiOutlineMinus
+                    onClick={handleRemoveProduct}
+                    className="text-white cursor-pointer text-sm font-bold "
+                  />
+                  <div className="text-white text-xl p-1 ">
+                    {cartProducts.find(
+                      (currentProduct) => currentProduct.id === product.id
+                    )?.stock || 0}
+                  </div>
+                  <AiOutlinePlus
+                    onClick={addProductFromCart}
+                    className={`text-white cursor-pointer text-sm ${
+                      isAddDisable ? "disabled" : ""
+                    }`}
+                  />
                 </div>
-                <AiOutlinePlus
-                  onClick={addProductFromCart}
-                  className={`text-white cursor-pointer text-sm ${
-                    isAddDisable ? "disabled" : ""
-                  }`}
-                />
               </div>
             </div>
           </div>
